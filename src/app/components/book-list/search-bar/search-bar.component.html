@@ -1,0 +1,12 @@
+<form [formGroup]="searchForm">
+  <mat-form-field appearance="outline">
+    <mat-label>Search</mat-label>
+    <input matInput placeholder="Search by title or author" formControlName="searchControl">
+    <mat-icon *ngIf="!searchForm.controls['searchControl'].value.length" matSuffix>search</mat-icon>
+    <mat-icon
+      *ngIf="searchForm.controls['searchControl'].value.length"
+      matSuffix class="cancelSearch"
+      (click)="cancelSearch()">close
+    </mat-icon>
+  </mat-form-field>
+</form>

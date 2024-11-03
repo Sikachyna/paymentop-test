@@ -1,0 +1,90 @@
+mat-selection-list {
+  margin: 0 1rem 1rem 1rem;
+
+  mat-list-item {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2rem 0 2rem 0.5rem;
+    border-bottom: 1px solid #ccc;
+
+    mat-grid-tile {
+      background: lightblue;
+    }
+
+    &:hover {
+      .book-item .delete-button, .book-item .edit-button {
+        display: block;
+      }
+    }
+
+    .book-item {
+      width: inherit;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+
+      img {
+        margin-right: 0.5rem;
+      }
+
+      .book-details {
+        width: inherit;
+        overflow: hidden;
+        flex-grow: 1;
+
+        .mat-line {
+          span {
+            margin-right: 0.5em;
+
+            &.title {
+              font-weight: bold;
+            }
+
+            &.author {
+              font-style: italic;
+            }
+          }
+
+          &.description {
+            font-size: 0.8rem;
+            color: #666;
+            text-overflow: ellipsis;
+            overflow: hidden;
+          }
+        }
+      }
+
+      .delete-button, .edit-button {
+        margin: 0 0.8rem 0 0;
+        padding: 0;
+        display: none;
+
+        &:hover {
+          .actionIcon {
+            color: black;
+          }
+        }
+
+        .actionIcon {
+          color: #6364A4;
+        }
+      }
+    }
+  }
+}
+
+.no-books {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 40vh; /* Full viewport height */
+  text-align: center;
+  font-size: 2rem;
+  color: #666;
+}
+
+
+
+

@@ -1,0 +1,98 @@
+[
+  {
+    "id": 1,
+    "title": "Fantasy"
+  },
+  {
+    "id": 2,
+    "title": "Horror"
+  },
+  {
+    "id": 3,
+    "title": "Science fiction"
+  },
+  {
+    "id": 4,
+    "title": "Literary fiction"
+  },
+  {
+    "id": 5,
+    "title": "Romance novel"
+  },
+  {
+    "id": 6,
+    "title": "Adventure fiction"
+  },
+  {
+    "id": 7,
+    "title": "Historical Fiction"
+  },
+  {
+    "id": 8,
+    "title": "Mystery"
+  },
+  {
+    "id": 9,
+    "title": "Graphic novel"
+  },
+  {
+    "id": 10,
+    "title": "Short story"
+  },
+  {
+    "id": 11,
+    "title": "Young adult"
+  },
+  {
+    "id": 12,
+    "title": "Thriller"
+  },
+  {
+    "id": 13,
+    "title": "Classics"
+  },
+  {
+    "id": 14,
+    "title": "Dystopian Fiction"
+  },
+  {
+    "id": 15,
+    "title": "Women's fiction"
+  },
+  {
+    "id": 16,
+    "title": "Children's literature"
+  },
+  {
+    "id": 17,
+    "title": "Memoir"
+  },
+  {
+    "id": 18,
+    "title": "Suspense"
+  },
+  {
+    "id": 19,
+    "title": "Western fiction"
+  },
+  {
+    "id": 20,
+    "title": "Biography"
+  },
+  {
+    "id": 21,
+    "title": "Crime fiction"
+  },
+  {
+    "id": 22,
+    "title": "Crime and mystery"
+  },
+  {
+    "id": 23,
+    "title": "Humor"
+  },
+  {
+    "id": 24,
+    "title": "Satire"
+  }
+]

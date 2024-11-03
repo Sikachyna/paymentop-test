@@ -1,0 +1,13 @@
+mat-form-field {
+  margin: 2rem 0 0 1.2rem;
+  width: 30%;
+  min-width: 200px;
+}
+
+.cancelSearch {
+  cursor: pointer;
+
+  &:hover {
+    color: #f44336;
+  }
+}

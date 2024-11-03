@@ -1,0 +1,106 @@
+<mat-card *ngIf="data.book && !data.isEdit && !data.isAddBook">
+  <mat-card-header>
+    <mat-card-title>{{ data.book.title }} ({{ data.book.year }})</mat-card-title>
+    <mat-card-subtitle class="author">{{ data.book.author }}</mat-card-subtitle>
+    <button mat-icon-button mat-dialog-close class="close-button" tabindex="-1">
+      <mat-icon>close</mat-icon>
+    </button>
+  </mat-card-header>
+
+  <mat-card-content>
+    <div class="additional">
+      <img mat-card-image
+           [ngSrc]="data.book.cover"
+           width="300"
+           height="462"
+           alt=""
+           onerror="this.src='./assets/images/cover-no-available.jpg'">
+      <div class="data">
+        <div class="data-line">Rating:
+          <ng-container *ngFor="let star of getStars(data.book.rating)">
+            <mat-icon>{{ star }}</mat-icon>
+          </ng-container>
+        </div>
+        <div class="data-line">Genre: <span>{{ getGenreTitle(data.book.genre) }}</span></div>
+        <div class="data-line">Publisher: <span>{{ data.book.publisher }}</span></div>
+        <div class="data-line">ISBN: <span>{{ data.book.isbn }}</span></div>
+      </div>
+    </div>
+    <div class="description">
+      {{ data.book.description }}
+    </div>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-raised-button color="warn" tabindex="-1" (click)="deleteBook()">
+      <mat-icon class="deleteIcon">delete</mat-icon>
+      Delete
+    </button>
+    <button mat-raised-button color="primary" (click)="editBook()" tabindex="-1">
+      <mat-icon class="deleteIcon">edit</mat-icon>
+      Edit
+    </button>
+  </mat-card-actions>
+</mat-card>
+
+<mat-card *ngIf="data.isEdit">
+  <mat-card-header>
+    <mat-card-title *ngIf="!data.isAddBook">Edit book</mat-card-title>
+    <mat-card-title *ngIf="data.isAddBook">Add book</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <form [formGroup]="bookForm">
+      <div class="left-side">
+        <mat-form-field>
+          <mat-label>Title</mat-label>
+          <input matInput formControlName="title">
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Author</mat-label>
+          <input matInput formControlName="author">
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Year</mat-label>
+          <input matInput type="number" formControlName="year">
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Genre</mat-label>
+          <mat-select formControlName="genre">
+            <mat-option *ngFor="let genre of genres" [value]="genre.id">{{ genre.title }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Publisher</mat-label>
+          <input matInput formControlName="publisher">
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>ISBN</mat-label>
+          <input matInput formControlName="isbn">
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Rating</mat-label>
+          <input matInput type="number" formControlName="rating" min="1" max="5">
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Cover</mat-label>
+          <input matInput type="url" formControlName="cover">
+        </mat-form-field>
+      </div>
+      <div class="right-side">
+        <mat-form-field class="descriptionTextArea">
+          <mat-label>Description</mat-label>
+          <textarea matInput formControlName="description"></textarea>
+        </mat-form-field>
+      </div>
+    </form>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-raised-button color="primary" (click)="cancelEdit()" tabindex="-1">
+      <mat-icon class="deleteIcon">cancel</mat-icon>
+      Cancel
+    </button>
+    <button mat-raised-button color="primary" (click)="saveBook()" tabindex="-1" [disabled]="bookForm.invalid">
+      <mat-icon class="deleteIcon">save</mat-icon>
+      Save
+    </button>
+  </mat-card-actions>
+</mat-card>

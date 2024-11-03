@@ -1,0 +1,31 @@
+<app-search-bar (search)="onSearch($event)"></app-search-bar>
+<mat-selection-list *ngIf="isShowBooks; else noBooks">
+  @for (book of filteredBooks || books; track book.id) {
+    <mat-list-item (click)="selectBook(book.id)">
+      <div class="book-item">
+        <img [ngSrc]="book.cover" width=30 height="50" alt=""
+             onerror="this.src='./assets/images/cover-no-available.jpg'">
+        <div class="book-details">
+          <div mat-line class="mat-line">
+            <span class="title">{{ book.title }}</span>
+            <span class="author">{{ book.author }}</span>
+            <span class="year">({{ book.year }})</span>
+          </div>
+          <div mat-line class="description">{{ book.description }}</div>
+        </div>
+        <button mat-icon-button matListItemMeta (click)="deleteBook($event, book.id)" class="delete-button">
+          <mat-icon class="actionIcon">delete</mat-icon>
+        </button>
+      </div>
+    </mat-list-item>
+  }
+</mat-selection-list>
+
+<ng-template #noBooks>
+  <div class="no-books">
+    <p>No books found</p>
+  </div>
+</ng-template>
+
+
+
